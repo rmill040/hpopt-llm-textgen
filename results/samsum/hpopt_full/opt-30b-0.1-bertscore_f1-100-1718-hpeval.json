@@ -1,0 +1,391 @@
+[
+    {
+        "model_name": "opt-30b",
+        "dataset_name": "samsum",
+        "batch_size": 1,
+        "metric": "bertscore_f1",
+        "max_evals": 100,
+        "random_state": 1718,
+        "sample_size_validation": 0.1,
+        "sample_size_test": 1.0
+    },
+    {
+        "type": "beam search multinomial sampling",
+        "params": {
+            "bos_token_id": 2,
+            "do_sample": true,
+            "early_stopping": true,
+            "eos_token_id": 2,
+            "max_new_tokens": 133,
+            "no_repeat_ngram_size": 0,
+            "num_beams": 4,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.2,
+            "temperature": 0.8169716877754012,
+            "top_k": 0
+        },
+        "validation": {
+            "rouge1": 0.497507740762401,
+            "rouge2": 0.26254938176657344,
+            "rougeL": 0.42885503493804755,
+            "rougeLsum": 0.4274088458131641,
+            "bertscore_f1": 0.9167191202257886,
+            "bertscore_precision": 0.9227183917422354,
+            "bertscore_recall": 0.9112872503421925
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.48433822238238566,
+            "rouge2": 0.2509161755969549,
+            "rougeL": 0.41048564347613364,
+            "rougeLsum": 0.41055699058544404,
+            "bertscore_f1": 0.914214542569986,
+            "bertscore_precision": 0.9227293987413903,
+            "bertscore_recall": 0.9063540123612307,
+            "total_time": 4708.941592931747
+        }
+    },
+    {
+        "type": "beam search",
+        "params": {
+            "bos_token_id": 2,
+            "early_stopping": false,
+            "eos_token_id": 2,
+            "max_new_tokens": 149,
+            "no_repeat_ngram_size": 0,
+            "num_beams": 2,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0
+        },
+        "validation": {
+            "rouge1": 0.4906370258728549,
+            "rouge2": 0.25971786284649206,
+            "rougeL": 0.4165473341789386,
+            "rougeLsum": 0.4176746456386714,
+            "bertscore_f1": 0.9151470609653143,
+            "bertscore_precision": 0.919422447681427,
+            "bertscore_recall": 0.9115178364294546
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.4880975172391906,
+            "rouge2": 0.25974521912263504,
+            "rougeL": 0.4153741863287215,
+            "rougeLsum": 0.415821563884041,
+            "bertscore_f1": 0.9139904892197168,
+            "bertscore_precision": 0.9202140445237631,
+            "bertscore_recall": 0.9084220844456273,
+            "total_time": 3178.2479515075684
+        }
+    },
+    {
+        "type": "grouped beam search",
+        "params": {
+            "bos_token_id": 2,
+            "diversity_penalty": 0.0,
+            "early_stopping": true,
+            "eos_token_id": 2,
+            "max_new_tokens": 93,
+            "no_repeat_ngram_size": 0,
+            "num_beam_groups": 2,
+            "num_beams": 4,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0
+        },
+        "validation": {
+            "rouge1": 0.48976966892368323,
+            "rouge2": 0.25955281465104163,
+            "rougeL": 0.4157646669749874,
+            "rougeLsum": 0.4166422292111712,
+            "bertscore_f1": 0.9148678345444762,
+            "bertscore_precision": 0.919219869154471,
+            "bertscore_recall": 0.9111643882445347
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.48758464695921055,
+            "rouge2": 0.2585222633431798,
+            "rougeL": 0.4148933379964027,
+            "rougeLsum": 0.41537425058674093,
+            "bertscore_f1": 0.9140577222401406,
+            "bertscore_precision": 0.9204249712428185,
+            "bertscore_recall": 0.9083375432261326,
+            "total_time": 4532.978989601135
+        }
+    },
+    {
+        "type": "beam search top-k sampling",
+        "params": {
+            "bos_token_id": 2,
+            "do_sample": true,
+            "early_stopping": false,
+            "eos_token_id": 2,
+            "max_new_tokens": 123,
+            "no_repeat_ngram_size": 0,
+            "num_beams": 3,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.2,
+            "temperature": 1.1257284459365315,
+            "top_k": 55
+        },
+        "validation": {
+            "rouge1": 0.5054838104213495,
+            "rouge2": 0.27115893953072245,
+            "rougeL": 0.43308507653884565,
+            "rougeLsum": 0.432243420131702,
+            "bertscore_f1": 0.9145541161666682,
+            "bertscore_precision": 0.9131823940041625,
+            "bertscore_recall": 0.9165156763276936
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.4952636248173149,
+            "rouge2": 0.25541181375291033,
+            "rougeL": 0.41400184484484914,
+            "rougeLsum": 0.4140529565231933,
+            "bertscore_f1": 0.9142665735676757,
+            "bertscore_precision": 0.9159446944538344,
+            "bertscore_recall": 0.9131757109010904,
+            "total_time": 4385.986318349838
+        }
+    },
+    {
+        "type": "contrastive search",
+        "params": {
+            "bos_token_id": 2,
+            "eos_token_id": 2,
+            "max_new_tokens": 143,
+            "no_repeat_ngram_size": 5,
+            "pad_token_id": 1,
+            "penalty_alpha": 0.3251376487842513,
+            "repetition_penalty": 1.0,
+            "temperature": 0.6987326703026135,
+            "top_k": 10
+        },
+        "validation": {
+            "rouge1": 0.499231419227509,
+            "rouge2": 0.25465553685838127,
+            "rougeL": 0.41945555421302133,
+            "rougeLsum": 0.4186034251429583,
+            "bertscore_f1": 0.9140933185447881,
+            "bertscore_precision": 0.9152992021890334,
+            "bertscore_recall": 0.9134733706344793
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.4781179501716837,
+            "rouge2": 0.23088623053534713,
+            "rougeL": 0.3928504484376907,
+            "rougeLsum": 0.39306227227881685,
+            "bertscore_f1": 0.911085681130282,
+            "bertscore_precision": 0.9151242342543865,
+            "bertscore_recall": 0.9076064457362255,
+            "total_time": 7291.172905445099
+        }
+    },
+    {
+        "type": "greedy decoding",
+        "params": {
+            "bos_token_id": 2,
+            "eos_token_id": 2,
+            "max_new_tokens": 78,
+            "no_repeat_ngram_size": 5,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0
+        },
+        "validation": {
+            "rouge1": 0.4828631769574605,
+            "rouge2": 0.24605367108946277,
+            "rougeL": 0.4153132334836235,
+            "rougeLsum": 0.4149375471555756,
+            "bertscore_f1": 0.9126776890990175,
+            "bertscore_precision": 0.9142547404324567,
+            "bertscore_recall": 0.9116843342781067
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.47967598998769234,
+            "rouge2": 0.23642098344732104,
+            "rougeL": 0.39740677500560373,
+            "rougeLsum": 0.3975878116495929,
+            "bertscore_f1": 0.9115573370849693,
+            "bertscore_precision": 0.915629245277144,
+            "bertscore_recall": 0.9080422084701222,
+            "total_time": 1989.9593045711517
+        }
+    },
+    {
+        "type": "top-p nucleus top-k sampling",
+        "params": {
+            "bos_token_id": 2,
+            "do_sample": true,
+            "eos_token_id": 2,
+            "max_new_tokens": 143,
+            "no_repeat_ngram_size": 5,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0,
+            "temperature": 0.6609207157559178,
+            "top_k": 48,
+            "top_p": 0.8535713341239121
+        },
+        "validation": {
+            "rouge1": 0.47841770335166967,
+            "rouge2": 0.2190402930194595,
+            "rougeL": 0.38338150093137635,
+            "rougeLsum": 0.38184628409742827,
+            "bertscore_f1": 0.910565929648317,
+            "bertscore_precision": 0.9117423546167067,
+            "bertscore_recall": 0.9100074238247342
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.46630334964218534,
+            "rouge2": 0.21628340285692843,
+            "rougeL": 0.3782606438022732,
+            "rougeLsum": 0.3782623677435779,
+            "bertscore_f1": 0.9093581932950515,
+            "bertscore_precision": 0.913273252046443,
+            "bertscore_recall": 0.9059657201225504,
+            "total_time": 2009.5897951126099
+        }
+    },
+    {
+        "type": "truncation multinomial sampling",
+        "params": {
+            "bos_token_id": 2,
+            "do_sample": true,
+            "eos_token_id": 2,
+            "epsilon_cutoff": 0.0008566797394655919,
+            "eta_cutoff": 0.001514177512526013,
+            "max_new_tokens": 53,
+            "no_repeat_ngram_size": 0,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0,
+            "temperature": 0.6099795507283636,
+            "top_k": 0
+        },
+        "validation": {
+            "rouge1": 0.45689307900475085,
+            "rouge2": 0.21970201094692893,
+            "rougeL": 0.3828912296747584,
+            "rougeLsum": 0.3840089687136364,
+            "bertscore_f1": 0.9096833504276511,
+            "bertscore_precision": 0.9117072769153265,
+            "bertscore_recall": 0.908115608456694
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.46989383117189765,
+            "rouge2": 0.21911252807830411,
+            "rougeL": 0.38158149158420396,
+            "rougeLsum": 0.3818387535969503,
+            "bertscore_f1": 0.9105627491651729,
+            "bertscore_precision": 0.9143338986514398,
+            "bertscore_recall": 0.9073059133120945,
+            "total_time": 1982.42130112648
+        }
+    },
+    {
+        "type": "top-p nucleus multinomial sampling",
+        "params": {
+            "bos_token_id": 2,
+            "do_sample": true,
+            "eos_token_id": 2,
+            "max_new_tokens": 51,
+            "no_repeat_ngram_size": 0,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0,
+            "temperature": 0.7472614334337521,
+            "top_k": 0,
+            "top_p": 0.9487156355229965
+        },
+        "validation": {
+            "rouge1": 0.4582108731415706,
+            "rouge2": 0.21417025984905047,
+            "rougeL": 0.3732801519449112,
+            "rougeLsum": 0.371538307794516,
+            "bertscore_f1": 0.9074105576232627,
+            "bertscore_precision": 0.9096849818288544,
+            "bertscore_recall": 0.9056277657732551
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.45835816333073465,
+            "rouge2": 0.2041701688671862,
+            "rougeL": 0.3690566651937184,
+            "rougeLsum": 0.36972136837804725,
+            "bertscore_f1": 0.9081313977602492,
+            "bertscore_precision": 0.9114994069741031,
+            "bertscore_recall": 0.9053075448206201,
+            "total_time": 2011.0097057819366
+        }
+    },
+    {
+        "type": "multinomial sampling",
+        "params": {
+            "bos_token_id": 2,
+            "do_sample": true,
+            "eos_token_id": 2,
+            "max_new_tokens": 53,
+            "no_repeat_ngram_size": 5,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0,
+            "temperature": 0.6349631332302761,
+            "top_k": 0
+        },
+        "validation": {
+            "rouge1": 0.45076529913983,
+            "rouge2": 0.19647328727342525,
+            "rougeL": 0.35864746811107395,
+            "rougeLsum": 0.3593304976277048,
+            "bertscore_f1": 0.9060848362651872,
+            "bertscore_precision": 0.9055013097362754,
+            "bertscore_recall": 0.9071189908333767
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.4518918693647508,
+            "rouge2": 0.19545274244965383,
+            "rougeL": 0.3623278396983304,
+            "rougeLsum": 0.3626309677037226,
+            "bertscore_f1": 0.9070483103339926,
+            "bertscore_precision": 0.9102561449102139,
+            "bertscore_recall": 0.9043488581829746,
+            "total_time": 2023.8426640033722
+        }
+    },
+    {
+        "type": "top-k sampling",
+        "params": {
+            "bos_token_id": 2,
+            "do_sample": true,
+            "eos_token_id": 2,
+            "max_new_tokens": 110,
+            "no_repeat_ngram_size": 4,
+            "pad_token_id": 1,
+            "repetition_penalty": 1.0,
+            "temperature": 0.6101334870751008,
+            "top_k": 49
+        },
+        "validation": {
+            "rouge1": 0.43660112634814957,
+            "rouge2": 0.17992368565846378,
+            "rougeL": 0.3520856086956785,
+            "rougeLsum": 0.35143791075498076,
+            "bertscore_f1": 0.9025687119107187,
+            "bertscore_precision": 0.9019500068676325,
+            "bertscore_recall": 0.9036462741133607
+        },
+        "metric": "bertscore_f1",
+        "test": {
+            "rouge1": 0.4297515837879189,
+            "rouge2": 0.1821709447334111,
+            "rougeL": 0.3408848300196027,
+            "rougeLsum": 0.34086084933947125,
+            "bertscore_f1": 0.9021217423480946,
+            "bertscore_precision": 0.9045245562280927,
+            "bertscore_recall": 0.9001964614504859,
+            "total_time": 2050.3773880004883
+        }
+    }
+]

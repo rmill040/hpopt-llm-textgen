@@ -1,0 +1,53 @@
+Region: us-east-1
+
+Image:
+  Os: ubuntu2004
+
+HeadNode:
+  InstanceType: # ADD HERE
+  Networking:
+    SubnetId: # ADD HERE
+  Ssh:
+    KeyName: # ADD HERE
+    AllowedIps: # ADD HERE
+  LocalStorage:
+    RootVolume:
+      Size: 100          
+      VolumeType: gp3
+      DeleteOnTermination: true
+  Iam:
+    InstanceRole: # ADD HERE
+
+Scheduling:
+  Scheduler: slurm
+  SlurmQueues:
+  - Name: default-queue
+    ComputeSettings:
+      LocalStorage:
+        RootVolume:
+          Size: 100
+          VolumeType: gp3
+    ComputeResources:
+    - Name: default-compute
+      Instances:
+      - InstanceType: # ADD HERE
+      MinCount: # ADD HERE
+      MaxCount: # ADD HERE
+      Efa:
+        Enabled: true
+    Networking:
+      PlacementGroup:
+        Enabled: true
+      SubnetIds:
+      - # ADD HERE
+    Iam:
+      InstanceRole: # ADD HERE
+
+SharedStorage:
+  - MountDir: /opt/shared
+    Name: default-shared
+    StorageType: Ebs
+    EbsSettings:
+      VolumeType: gp3
+      Size: 1500
+      DeletionPolicy: Delete

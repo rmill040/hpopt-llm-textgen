@@ -1,0 +1,35 @@
+# Experiment config
+output_dir: opt-30b
+seed: 12720
+log_level: info
+
+# Model config
+model_name_or_path: facebook/opt-30b
+revision:
+
+# Training config
+deepspeed: configs/zero_stage3_offload.json
+num_train_epochs: 1
+per_device_train_batch_size: 16
+per_device_eval_batch_size: 16
+gradient_accumulation_steps: 4
+gradient_checkpointing: true
+learning_rate: 2.0e-5
+num_warmup_steps: 100
+eval_strategy: steps
+eval_every: 100
+save_strategy: steps
+save_every: -1
+save_best_checkpoint: true
+load_best_model: true
+
+# Data config
+dataset: cnn_dailymail
+overwrite_data: false
+max_length: 1024
+add_bos_token: true
+add_eos_token: true
+num_proc: 1
+max_train_samples: -1
+max_validation_samples: -1
+max_test_samples: -1
