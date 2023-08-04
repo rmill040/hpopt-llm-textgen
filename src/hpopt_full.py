@@ -171,7 +171,7 @@ def main():
     LOGGER.info("Loading pretrained tokenizer and model")
     quantization_config = BitsAndBytesConfig(llm_int8_enable_fp32_cpu_offload=True)
     MODEL = AutoModelForCausalLM.from_pretrained(
-        f"{args.model_name}/model",
+        f"{args.model_name}/model" if "facebook" not in args.model_name else args.model_name,
         device_map="balanced_low_0",
         torch_dtype=torch.float16,
         use_cache=True,
@@ -179,7 +179,10 @@ def main():
         quantization_config=quantization_config,
     )
     MODEL.eval()
-    TOKENIZER = AutoTokenizer.from_pretrained(f"{args.model_name}/model", padding_side="left")
+    TOKENIZER = AutoTokenizer.from_pretrained(
+        f"{args.model_name}/model" if "facebook" not in args.model_name else args.model_name, 
+        padding_side="left",
+    )
 
     # Create dataset
     LOGGER.info("Creating dataset")
@@ -346,7 +349,8 @@ def main():
     _ = fmin(objective, space=space, algo=tpe.suggest, max_evals=args.max_evals, trials=trials, rstate=rstate)
 
     # Save results
-    path = f"{args.model_name}-{args.sample_size}-{args.metric}-{args.max_evals}-{args.random_state}-hpopt.json"
+    model_name = args.model_name.split("/")[-1]  # Handles cases where we use the base LLM like: 'facebook/opt-1.3b'
+    path = f"{model_name}-{args.sample_size}-{args.metric}-{args.max_evals}-{args.random_state}-hpopt.json"
     results = {
         "config": vars(args),
         "validation": trials.results,
